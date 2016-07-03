@@ -54,14 +54,14 @@
 		<div id="weatherpic" class="weatherpic">
 	
 	
-	<img id="atmospheric" class="imghide" src="/img/sun.png">
-	<img id="clear" class="imghide" src="/img/sun.png">
-	<img id="cloudy" class="imghide" src="/img/cloudyanim.gif">
-	<img id="drizzle" class="imghide"  src="/img/raining.png">
-	<img id="other" class="imghide"  src="/img/other.gif">
-	<img id="severe" class="imghide" src="/img/raining.png">
-	<img id="snow" class="imghide" src="/img/snow.png">
-	<img id="thunderstorm" class="imghide" src="/img/raining.png">
+	<img id="atmospheric" class="imghide" src="img/sun.png">
+	<img id="clear" class="imghide" src="img/sun.png">
+	<img id="cloudy" class="imghide" src="img/cloudyanim.gif">
+	<img id="drizzle" class="imghide"  src="img/raining.png">
+	<img id="other" class="imghide"  src="img/other.gif">
+	<img id="severe" class="imghide" src="img/raining.png">
+	<img id="snow" class="imghide" src="img/snow.png">
+	<img id="thunderstorm" class="imghide" src="img/raining.png">
 </div></div></div>
 	<div class="row">
 	<div class="col-lg-2 col-lg-offset-4">
@@ -87,7 +87,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 	lat = position.coords.latitude;
 	long = position.coords.longitude;
-	weatherAPI = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=b2158880b15608e130f085229b7cb5be"; 
+	weatherAPI = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=b2158880b15608e130f085229b7cb5be"; 
 	$.getJSON(weatherAPI, function(data) {
 		conditionout = (data.weather[0].description);
 		$(".weathertype").html(conditionout);
