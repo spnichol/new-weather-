@@ -1,4 +1,4 @@
-<script>
+
 var lat;
 var long ;
 var weatherAPI;
@@ -85,4 +85,3 @@ navigator.geolocation.getCurrentPosition(function(position) {
 findNum();
 
 
-</script>
