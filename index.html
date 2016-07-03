@@ -87,7 +87,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 	lat = position.coords.latitude;
 	long = position.coords.longitude;
-	weatherAPI = "https://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=b2158880b15608e130f085229b7cb5be"; 
+	weatherAPI = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=b2158880b15608e130f085229b7cb5be"; 
 	$.getJSON(weatherAPI, function(data) {
 		conditionout = (data.weather[0].description);
 		$(".weathertype").html(conditionout);
