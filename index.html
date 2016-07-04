@@ -8,28 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-
-<!--STYLE SHEETS --> 
-
-<link href="css/style.css" rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
- <link rel="stylesheet" href="http://s.mlcdn.co/animate.css">
-
-
-
+     
 <!--FONTS-->
 
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,800' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lora:400,400italic,700italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400italic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:400,900' rel='stylesheet' type='text/css'>
-<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href='https://fonts.googleapis.com/css?family=Amatic+SC:400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Andika' rel='stylesheet' type='text/css'>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<!--STYLE SHEETS --> 
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://s.mlcdn.co/animate.css">
+<link href="css/style.css" rel='stylesheet' type='text/css'>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -55,14 +58,14 @@
 		<div id="weatherpic" class="weatherpic">
 	
 	
-	<img id="atmospheric" class="imghide" src="/img/sun.png">
-	<img id="clear" class="imghide" src="/img/sun.png">
-	<img id="cloudy" class="imghide" src="/img/cloudyanim.gif">
-	<img id="drizzle" class="imghide"  src="/img/raining.png">
-	<img id="other" class="imghide"  src="/img/other.gif">
-	<img id="severe" class="imghide" src="/img/raining.png">
-	<img id="snow" class="imghide" src="/img/snow.png">
-	<img id="thunderstorm" class="imghide" src="/img/raining.png">
+	<img id="atmospheric" class="imghide" src="img/sun.png">
+	<img id="clear" class="imghide" src="img/sun.png">
+	<img id="cloudy" class="imghide" src="img/cloudyanim.gif">
+	<img id="drizzle" class="imghide"  src="img/raining.png">
+	<img id="other" class="imghide"  src="img/other.gif">
+	<img id="severe" class="imghide" src="img/raining.png">
+	<img id="snow" class="imghide" src="img/snow.png">
+	<img id="thunderstorm" class="imghide" src="img/raining.png">
 </div></div></div>
 	<div class="row">
 	<div class="col-lg-2 col-lg-offset-4">
@@ -75,95 +78,10 @@
 			</div></div></div></div></div></section></header>
 
 	
-<script>
-var lat;
-var long ;
-var weatherAPI;
-function findNum() {
-var weathercode;
-var tempout;
-var conditionout;
-
-navigator.geolocation.getCurrentPosition(function(position) {
-
-	lat = position.coords.latitude;
-	long = position.coords.longitude;
-	weatherAPI = "http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=b2158880b15608e130f085229b7cb5be"; 
-	$.getJSON(weatherAPI, function(data) {
-		conditionout = (data.weather[0].description);
-		$(".weathertype").html(conditionout);
-		tempout = Math.floor((data.main.temp) * (9/5) -(459.67)) + " F";
-		tempoutc = Math.floor((data.main.temp) -(273.15)) + " C";
-
-		$(".temperature").html(tempout);
-
-		weathercode = (data.weather[0].id);
-
-
-		if (weathercode >=200 && weathercode <=232) {
-			$("#thunderstorm").removeClass("imghide").addClass("imgshow");
-		}
-		else if (weathercode >=300 && weathercode <=321) {
-			$("#drizzle").removeClass("imghide").addClass("imgshow");
-		}
-
-		else if (weathercode >=500 && weathercode <=531) {
-			$("#thunderstorm").removeClass("imghide").addClass("imgshow");
-		}
-
-		else if (weathercode >=600 && weathercode <=622) {
-			$("#snow").removeClass("imghide").addClass("imgshow");
-		}
-
-		else if (weathercode >=700 && weathercode <=781) {
-			$("#atmospheric").removeClass("imghide").addClass("imgshow");
-		}
-
-		else if (weathercode == 800) {
-			$("#clear").removeClass("imghide").addClass("imgshow");
-		}
-
-		else if (weathercode >= 801 && weathercode <= 804) {
-			$("#cloudy").removeClass("imghide").addClass("imgshow");
-		}
-	
-
-		function changetoCelsius() {
-			$(".temperature").html(tempoutc);
-		}
-		function changebacktoF() {
-			$(".temperature").html(tempout);
-		}
-
-		$(function(){
-			$("#celsius").click(changetoCelsius);
-			$("#changeback").click(changebacktoF);
-		});
-
-		
-
-
-		
-		
-
-
-
-	})
-
-
-
-
-
-
-});
-}
-
-
-findNum();
-
-
-</script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script type="text/javascript" src="js/weathercall.js"></script>
 	
 
 </body>
+</html>
