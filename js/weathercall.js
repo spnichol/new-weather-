@@ -11,7 +11,11 @@ navigator.geolocation.getCurrentPosition(function(position) {
 
 	lat = position.coords.latitude;
 	long = position.coords.longitude;
+<<<<<<< HEAD
 	weatherAPI = "api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=5c851ed5fc2dfd7022350b80629e301c"; 
+=======
+	weatherAPI = "https://crossorigin.me/http://api.openweathermap.org/data/2.5/weather?lat="+lat+"&lon="+long+"&APPID=5c851ed5fc2dfd7022350b80629e301c"; 
+>>>>>>> gh-pages
 	$.getJSON(weatherAPI, function(data) {
 		conditionout = (data.weather[0].description);
 		$(".weathertype").html(conditionout);
